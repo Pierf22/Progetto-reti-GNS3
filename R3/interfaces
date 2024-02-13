@@ -1,0 +1,29 @@
+source /etc/network/interfaces.d/*
+
+auto eth0
+iface eth0 inet static
+network 10.0.8.72
+netmask 255.255.255.252
+address 10.0.8.74
+broadcast 10.0.8.75
+
+auto eth1
+iface eth1 inet static
+network 10.0.0.0
+netmask 255.255.254.0
+address 10.0.0.2
+broadcast 10.0.1.255
+
+auto eth2
+iface eth2 inet static
+network 10.0.2.0
+netmask 255.255.254.0
+address 10.0.2.3
+broadcast 10.0.3.255
+
+#Rotta per andare verso internet
+#Rotta per raggiungere CD4
+#Rotta per raggiungere Area DMZ
+#Rotta per raggiungere CD2
+#Rotta per raggiungere area Green
+post-up route add default gw 10.0.8.73 dev eth0

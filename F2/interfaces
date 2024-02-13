@@ -1,0 +1,27 @@
+source /etc/network/interfaces.d/*
+
+auto eth0
+iface eth0 inet static
+network 10.0.8.68
+netmask 255.255.255.252
+address 10.0.8.70
+broadcast 10.0.8.71
+
+auto eth1
+iface eth1 inet static
+network 10.0.8.72
+netmask 255.255.255.252
+address 10.0.8.73
+broadcast 10.0.8.75
+
+#Rotta di default per andare verso Internet
+#Rotta per raggiungere Area Green
+#Rotta per raggiungere Area DMZ
+#Rotta per raggiungere CD2
+post-up route add default gw 10.0.8.69 dev eth0
+
+#Rotta per raggiungere area Red
+post-up route add -net 10.0.0.0/22 gw 10.0.8.74 dev eth1
+
+#Caricamento del firewall
+post-up sh /etc/network/firewall.sh

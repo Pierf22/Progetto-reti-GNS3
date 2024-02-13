@@ -1,0 +1,10 @@
+127.0.0.1	localhost
+127.0.1.1	vm
+10.0.8.65       F1
+10.0.8.69       R1
+10.0.8.74       R3
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
